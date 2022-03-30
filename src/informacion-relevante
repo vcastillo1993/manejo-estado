@@ -1,0 +1,91 @@
+estados compuestos =>
+
+son estados que son un objeto general,
+donde van ha vivir como propiedades todos 
+los posibles estados y que tendran 
+una solo funcion actualizadora para cada
+propiedad que representa cada estado...
+
+Ejemplo: 
+
+const [state, setState] = useState({
+        value: '',
+        error: false,
+        loading: false,
+        deleted: false,
+        confirmed: false
+    });
+
+REDUCER =>
+
+Son una herramienta de react hook, 
+la cual permite declarar todos los 
+posibles estados que pueda tener 
+la aplicacion para poder llamarlos 
+y manejarlos de forma declaratica...
+
+Los reducer se componen de dos partes:
+
+1 = Los compound state o estados compuestos
+2 = las acciones... estas estan compuestas de 
+    dos elementos
+  1 = action type:
+      este define cual es el nombre clave 
+      para crear y encontrar el nuevo estado 
+      con el que debemos hacer el cambio 
+      en la aplicacion
+
+  2 = action payload:
+      este es opcional, y se utiliza para 
+      manejar estados dinamicos, los cuales son 
+      cuando un nuevo estado depende de una API,
+      de los resultados de un usuario e.t.c...
+
+Ejemplos de creacion de reducer:...
+
+ 
+/* forma de hacer un reducer */
+/* Primera forma
+const reduce = ( state, action ) => {
+};
+ */
+/* Segunda forma */
+/* const reducer = (state, action) => {
+    if (action.type === 'ERROR') {
+        return {
+            ...state,
+            error: true,
+            loading: false
+        };
+    } else if (action.type === '') {
+        return {
+            ...state,
+            loading: true
+        }
+
+    } else {
+        return {
+            ...initialState
+        }
+    }
+} */
+/* Tercera forma */
+/* const reducerSwitch = (state, action) => {
+    switch (action.type) {
+        case 'ERROR':
+            return {
+                ...state,
+                error: true,
+                loading: false
+            };
+        case 'CHECK':
+            return {
+                ...state,
+                loading: true
+            };
+        default:
+            return {
+                ...state
+            };
+    }
+} */
